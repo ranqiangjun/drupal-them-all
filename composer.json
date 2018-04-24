@@ -2963,7 +2963,6 @@
         "drupal/monkey": "1.x-dev",
         "drupal/monolog": "^1.0",
         "drupal/monolog_gelf": "^1.0@beta",
-        "drupal/monster_menus": "1.x-dev",
         "drupal/moodle_sso": "2.x-dev",
         "drupal/moon_phases": "^1.1",
         "drupal/moonwalk": "1.x-dev",

@@ -2021,20 +2021,12 @@ var requirejs, require, define;
 var components = {
     "packages": [
         {
-            "name": "jquery",
-            "main": "jquery-built.js"
-        },
-        {
             "name": "jplayer",
             "main": "jplayer-built.js"
         },
         {
             "name": "select2",
             "main": "select2-built.js"
-        },
-        {
-            "name": "jstree",
-            "main": "jstree-built.js"
         }
     ],
     "shim": {
