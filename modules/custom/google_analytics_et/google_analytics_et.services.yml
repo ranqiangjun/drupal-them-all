@@ -1,0 +1,4 @@
+services:
+  google_analytics_event_tracking:
+    class: Drupal\google_analytics_et\GoogleAnalyticsEventTracking
+    arguments: ['@renderer', '@entity_type.manager', '@path.current', '@current_route_match', '@path.alias_manager', '@path.matcher', '@language_manager']

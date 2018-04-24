@@ -1,0 +1,8 @@
+
+google_analytics_et_test.test_form:
+  path: '/google_analytics_et_test/test'
+  defaults:
+    _form: '\Drupal\google_analytics_et_test\Form\TestForm'
+    _title: 'TestForm'
+  requirements:
+    _access: 'TRUE'

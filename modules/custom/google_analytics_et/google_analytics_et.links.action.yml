@@ -1,0 +1,6 @@
+entity.google_analytics_event_tracker.add_form:
+  route_name: entity.google_analytics_event_tracker.add_form
+  title: 'Add Google Analytics event tracker'
+  appears_on:
+    - entity.google_analytics_event_tracker.collection
+

@@ -1,0 +1,51 @@
+google_analytics_et.google_analytics_event_tracker.*:
+  type: config_entity
+  label: 'Google Analytics event tracker config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    element_selector:
+      type: string
+      label: 'CSS Selector'
+    dom_event:
+      type: string
+      label: 'DOM Event'
+    ga_event_category:
+      type: string
+      label: 'Google Analytics Event Category'
+    ga_event_action:
+      type: string
+      label: 'Google Analytics Event Action Name'
+    ga_event_label:
+      type: string
+      label: 'Google Analytics Event Label'
+    ga_event_value:
+      type: integer
+      label: 'Google Analytics Event Value'
+    ga_event_noninteraction:
+      type: boolean
+      label: 'Google Analytics Non-interaction Event'
+    content_types:
+      type: array
+      label: 'Content Types to apply event tracker'
+    languages:
+      type: array
+      label: 'Languages to apply event tracker'
+    themes:
+      type: array
+      label: 'Themes to which event tracker should apply'
+    preprocess:
+      type: boolean
+      label: 'Preprocess tracker Javascript'
+    path_negate:
+      type: boolean
+      label: 'All pages except or only those'
+    paths:
+      type: text
+      label: 'list of pages to be white/black listed'

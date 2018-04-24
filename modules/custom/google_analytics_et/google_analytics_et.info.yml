@@ -1,0 +1,13 @@
+name: Google Analytics Events Tracking
+type: module
+description: Allows configuration for tracking DOM events with Google Analytics.
+# core: 8.x
+package: Statistics
+dependencies:
+  - google_analytics
+
+# Information added by Drupal.org packaging script on 2018-03-01
+version: '8.x-2.0-alpha1'
+core: '8.x'
+project: 'google_analytics_et'
+datestamp: 1519932486

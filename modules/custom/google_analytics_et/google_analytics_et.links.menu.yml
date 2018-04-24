@@ -1,0 +1,9 @@
+
+# Google Analytics event tracker menu items definition
+entity.google_analytics_event_tracker.collection:
+  title: 'Google Analytics Event Trackers'
+  route_name: entity.google_analytics_event_tracker.collection
+  description: 'List Google Analytics Event Trackers'
+  parent: system.admin_config_system
+  weight: 99
+

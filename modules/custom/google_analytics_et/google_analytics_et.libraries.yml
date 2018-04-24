@@ -1,0 +1,8 @@
+google_analytics_et:
+  version: VERSION
+  js:
+    js/google_analytics_et.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - google_analytics/google_analytics

@@ -1,0 +1,5 @@
+entity.google_analytics_event_tracker.collection:
+  route_name: 'entity.google_analytics_event_tracker.collection'
+  title: 'Event Trackers'
+  base_route: google_analytics.admin_settings_form
+  weight: 99
