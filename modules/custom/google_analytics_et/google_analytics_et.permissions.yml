@@ -1,4 +1,0 @@
-administer google analytics trackers:
-  title: 'Administer Google Analytics Trackers'
-  description: 'Add Google Analytics Trackers to desired pages.'
-  restrict access: true
