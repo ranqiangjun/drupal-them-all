@@ -156,7 +156,17 @@ var git = function () {
     });
 };
 
-
+var sortPackages = function() {
+    jsonfile.readFile(filenames['packages_ignore'], function (err, packages) {
+        packages = packages.sort();
+        jsonfile.writeFile(filenames['packages_ignore'], packages, {spaces: 2}, function(err) {
+            if(err) {
+                return console.log(err);
+            }
+            console.dir("The file was saved!");
+        }); 
+    });
+}
 
 var yargs = require('yargs').command({
     command: 'remote',
@@ -197,5 +207,13 @@ var yargs = require('yargs').command({
     handler: function () {
         'use strict';
         git();
+    }
+}).command({
+    command: 'sort',
+    aliases: ['s'],
+    desc: 'Sort and store.',
+    handler: function () {
+        'use strict';
+        sortPackages();
     }
 }).demandCommand().help('h').argv;
