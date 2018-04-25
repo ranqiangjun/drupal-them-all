@@ -188,8 +188,14 @@ var getStablePackages = function () {
 
         for(var k in obj_clone.require) {
             var version = obj_clone.require[k];
-            if (version.indexOf('dev') == -1 && version.indexOf('alpha') == -1 && version.indexOf('beta') == -1 && version.indexOf('RC') == -1) {
+            if (version.indexOf('dev') == -1 && version.indexOf('alpha') == -1) {
                 packages[k] = version;
+                if (version.indexOf('beta') != -1) {
+                    beta_packages[k] = version;
+                };
+                if (version.indexOf('RC') != -1) {
+                    rc_packages[k] = version;
+                };
             }
             else {
                 if (version.indexOf('dev') != -1) {
@@ -197,12 +203,6 @@ var getStablePackages = function () {
                 };
                 if (version.indexOf('alpha') != -1) {
                     alpha_packages[k] = version;
-                };
-                if (version.indexOf('beta') != -1) {
-                    beta_packages[k] = version;
-                };
-                if (version.indexOf('RC') != -1) {
-                    rc_packages[k] = version;
                 };
             }
         }
