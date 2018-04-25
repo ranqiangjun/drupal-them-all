@@ -13,7 +13,9 @@ const filenames = {
     'packages_remote': '.dta/packages_remote.json',
     'packages_ignore': '.dta/packages_ignore.json',
     'packages_new': '.dta/packages_new.json',
-    'contributions_commands': '.dta/contributions_commands.sh'
+    'contributions_commands': '.dta/contributions_commands.sh',
+    'composer': '.dta/composer.json',
+    'packages_dev': '.dta/dev.json',
 };
 
 var url_modules = 'https://www.drupal.org/project/project_module/index?project-status=full&drupal_core=7234';
@@ -88,7 +90,7 @@ function callback(error, response, body, filepath) {
 
 
 var getLocalPackages = function (filepath) {
-    jsonfile.readFile('composer.json', function (err, obj) {
+    jsonfile.readFile(filenames['composer'], function (err, obj) {
         var packages = Object.keys(obj.require);
         required_drupal_packages = packages.filter(function (item) {
             return item.indexOf('drupal/') !== -1;
@@ -168,6 +170,38 @@ var sortPackages = function() {
     });
 }
 
+var removeDevPackages = function () {
+    jsonfile.readFile(filenames['composer'], function (err, obj) {
+        // var packages = Object.keys(obj.require);
+
+        var obj_clone = Object.create(obj);
+
+        var packages = {};
+
+        var dev_packages = {};
+
+        for(var k in obj_clone.require) {
+            var version = obj_clone.require[k];
+            if (version.indexOf('dev') == -1) {
+                packages[k] = version;
+            }
+            else {
+                dev_packages[k] = version;
+            }
+        }
+
+        obj.require = packages;
+        jsonfile.writeFile('composer.json', obj, {spaces: 4}, function (err) {
+            console.error(err)
+        });
+
+        jsonfile.writeFile(filenames['packages_dev'], Object.keys(dev_packages), {spaces: 2}, function (err) {
+            console.error(err)
+        });
+
+    });
+}
+
 var yargs = require('yargs').command({
     command: 'remote',
     aliases: ['ra'],
@@ -215,5 +249,13 @@ var yargs = require('yargs').command({
     handler: function () {
         'use strict';
         sortPackages();
+    }
+}).command({
+    command: 'nodev',
+    aliases: ['nd'],
+    desc: 'Remove dev packages.',
+    handler: function () {
+        'use strict';
+        removeDevPackages();
     }
 }).demandCommand().help('h').argv;
