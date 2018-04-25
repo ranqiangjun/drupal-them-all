@@ -276,7 +276,6 @@
         "drupal/autofloat": "^1.0",
         "drupal/autogrow": "^1.0",
         "drupal/autologout": "^1.0",
-        "drupal/automate": "1.x-dev",
         "drupal/automated_crop": "1.x-dev",
         "drupal/automatic_taxonomy_terms": "^1.0@beta",
         "drupal/autopost_facebook": "^1.0@alpha",
