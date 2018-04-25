@@ -16,6 +16,9 @@ const filenames = {
     'contributions_commands': '.dta/contributions_commands.sh',
     'composer': '.dta/composer.json',
     'packages_dev': '.dta/dev.json',
+    'packages_alpha': '.dta/alpha.json',
+    'packages_beta': '.dta/beta.json',
+    'packages_rc': '.dta/rc.json',
 };
 
 var url_modules = 'https://www.drupal.org/project/project_module/index?project-status=full&drupal_core=7234';
@@ -170,7 +173,7 @@ var sortPackages = function() {
     });
 }
 
-var removeDevPackages = function () {
+var getStablePackages = function () {
     jsonfile.readFile(filenames['composer'], function (err, obj) {
         // var packages = Object.keys(obj.require);
 
@@ -179,14 +182,28 @@ var removeDevPackages = function () {
         var packages = {};
 
         var dev_packages = {};
+        var alpha_packages = {};
+        var beta_packages = {};
+        var rc_packages = {};
 
         for(var k in obj_clone.require) {
             var version = obj_clone.require[k];
-            if (version.indexOf('dev') == -1) {
+            if (version.indexOf('dev') == -1 && version.indexOf('alpha') == -1 && version.indexOf('beta') == -1 && version.indexOf('RC') == -1) {
                 packages[k] = version;
             }
             else {
-                dev_packages[k] = version;
+                if (version.indexOf('dev') != -1) {
+                    dev_packages[k] = version;
+                };
+                if (version.indexOf('alpha') != -1) {
+                    alpha_packages[k] = version;
+                };
+                if (version.indexOf('beta') != -1) {
+                    beta_packages[k] = version;
+                };
+                if (version.indexOf('RC') != -1) {
+                    rc_packages[k] = version;
+                };
             }
         }
 
@@ -196,6 +213,17 @@ var removeDevPackages = function () {
         });
 
         jsonfile.writeFile(filenames['packages_dev'], Object.keys(dev_packages), {spaces: 2}, function (err) {
+            console.error(err)
+        });
+
+        jsonfile.writeFile(filenames['packages_alpha'], Object.keys(alpha_packages), {spaces: 2}, function (err) {
+            console.error(err)
+        });
+        jsonfile.writeFile(filenames['packages_beta'], Object.keys(beta_packages), {spaces: 2}, function (err) {
+            console.error(err)
+        });
+
+        jsonfile.writeFile(filenames['packages_rc'], Object.keys(rc_packages), {spaces: 2}, function (err) {
             console.error(err)
         });
 
@@ -251,11 +279,11 @@ var yargs = require('yargs').command({
         sortPackages();
     }
 }).command({
-    command: 'nodev',
-    aliases: ['nd'],
-    desc: 'Remove dev packages.',
+    command: 'stable',
+    aliases: ['st'],
+    desc: 'Remove dev/alpha/beta/rc packages.',
     handler: function () {
         'use strict';
-        removeDevPackages();
+        getStablePackages();
     }
 }).demandCommand().help('h').argv;
