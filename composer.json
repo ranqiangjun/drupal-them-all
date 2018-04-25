@@ -2246,7 +2246,6 @@
         "drupal/static_server": "^1.2",
         "drupal/statistics_counter": "^1.0@beta",
         "drupal/steam_api": "^1.2",
-        "drupal/steam_login": "^1.0",
         "drupal/stem_theme": "^1.2",
         "drupal/sticky": "^1.1",
         "drupal/sticky_sharrre_bar": "^1.3",
