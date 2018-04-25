@@ -2026,7 +2026,6 @@
         "drupal/zt_megamenu": "^1.0",
         "drupal/zuora": "^1.1",
         "drupal/zurb_twentytwenty": "^1.1",
-        "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-core-strict": "8.5.2",
         "webflo/drupal-finder": "^1.0.0",
