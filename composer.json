@@ -1,6 +1,6 @@
 {
-    "name": "drupal-composer/drupal-project",
-    "description": "Project template for Drupal 8 projects with composer",
+    "name": "jungleran/drupal-them-all",
+    "description": "Get ~5000 Drupal packages with one command -- almost all modules and themes of Drupal 8 and the latest Drupal 8 core.",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "authors": [

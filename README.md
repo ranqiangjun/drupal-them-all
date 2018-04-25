@@ -4,7 +4,7 @@ Get `~5000!!!` Drupal packages with one command -- almost all modules and themes
 
 ```
 # Estimated to run more then 10,000 seconds.
-git clone https://github.com/jungleran/drupal-them-all.git && composer install -vvv
+git clone https://github.com/jungleran/drupal-them-all.git &&  cd drupal-them-all && composer install -vvv
 ```
 
 > Recommend using the composer parallel install plugin https://github.com/hirak/prestissimo to accelerate the process above.
