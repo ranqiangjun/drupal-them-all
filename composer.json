@@ -2494,7 +2494,7 @@
         "drupal/zuora": "^1.1",
         "drupal/zurb_twentytwenty": "^1.1",
         "vlucas/phpdotenv": "^2.4",
-        "webflo/drupal-core-strict": "8.5.2",
+        "webflo/drupal-core-strict": "^8.5",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
     },
@@ -2505,7 +2505,7 @@
         "drupal/drush_delete": "^2.2",
         "drupal/drush_locale_sync": "^2.0",
         "drupal/drush_sql_sync_pipe": "^2.0",
-        "webflo/drupal-core-require-dev": "8.5.2"
+        "webflo/drupal-core-require-dev": "^8.5"
     },
     "conflict": {
         "drupal/drupal": "*"
