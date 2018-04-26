@@ -157,7 +157,7 @@ var git = function () {
                 return console.log(err);
             }
             console.dir("The file was saved!");
-        }); 
+        });
     });
 };
 
@@ -169,9 +169,9 @@ var sortPackages = function() {
                 return console.log(err);
             }
             console.dir("The file was saved!");
-        }); 
+        });
     });
-}
+};
 
 var getStablePackages = function () {
     jsonfile.readFile(filenames['composer'], function (err, obj) {
@@ -228,7 +228,23 @@ var getStablePackages = function () {
         });
 
     });
-}
+};
+
+
+var removeThemes = function () {
+    jsonfile.readFile('composer.json', function (err, obj) {
+        jsonfile.readFile(filenames['themes'], function (err, themes) {
+            var deleted = themes.map(function(item) {
+                if (item in obj.require) {
+                    delete obj.require[item];
+                }
+            });
+            jsonfile.writeFile('composer.json', obj, {spaces: 4}, function (err) {
+                console.error(err);
+            });
+        });
+    });
+};
 
 var yargs = require('yargs').command({
     command: 'remote',
@@ -285,5 +301,13 @@ var yargs = require('yargs').command({
     handler: function () {
         'use strict';
         getStablePackages();
+    }
+}).command({
+    command: 'removethemes',
+    aliases: ['rt'],
+    desc: 'Remove themes',
+    handler: function () {
+        'use strict';
+        removeThemes();
     }
 }).demandCommand().help('h').argv;
