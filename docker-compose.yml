@@ -2,35 +2,35 @@ version: "2"
 
 services:
 
-  web:
-    image: jungleran/drupal-base:8.5.2-apache
-    container_name: web
+  dta:
+    image: jungleran/drupal-base:8.5.3-apache
+    container_name: dta
     volumes:
       - ./:/var/www/html
     ports:
       - 5000:80
     restart: always
 
-  db:
+  dtadb:
     image: mysql:5.7.21
-    container_name: db
+    container_name: dtadb
     hostname: db
     environment:
       - MYSQL_ROOT_PASSWORD=root
     restart: always
 
-  drush:
-    image: jungleran/drush:8.5.2-apache
-    container_name: drush
+  dtadrush:
+    image: jungleran/drush:8.5.3-apache
+    container_name: dtadrush
     hostname: drush
     volumes_from:
-      - web
+      - dta
     entrypoint:
       - bash
     tty: true
 
-  adminer:
+  dtaadminer:
     image: adminer:4.6.2-standalone
-    container_name: adminer
+    container_name: dtaadminer
     ports:
       - 5001:8080
