@@ -554,7 +554,7 @@
         "drupal/coorrency": "^1.6",
         "drupal/copyright_block": "^1.0@RC",
         "drupal/copyscape": "^4.0",
-        "drupal/core": "^8.5",
+        "drupal/core": "8.5.3",
         "drupal/core_views_facets": "^1.0@beta",
         "drupal/cors": "^1.0",
         "drupal/couchbasedrupal": "^1.20",
@@ -2494,7 +2494,7 @@
         "drupal/zuora": "^1.1",
         "drupal/zurb_twentytwenty": "^1.1",
         "vlucas/phpdotenv": "^2.4",
-        "webflo/drupal-core-strict": "^8.5",
+        "webflo/drupal-core-strict": "8.5.3",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
     },
